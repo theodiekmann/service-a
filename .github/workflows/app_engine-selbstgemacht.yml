@@ -23,11 +23,12 @@ jobs:
       
     # deployen
     - uses: google-github-actions/deploy-appengine@v0.4.0
+      id: deploy
       with:
           project_id: modern-tech-training-331108
           deliverables: app.yaml
     
-      
+    - run: curl "${{ steps.deploy.outputs.url }}/hello/david"  
       
     # testen
   
